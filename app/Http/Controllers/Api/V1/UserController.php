@@ -1,6 +1,6 @@
 <?php
   
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Api\V1;
   
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,16 +9,19 @@ use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\RedirectResponse;
-
   
-class AuthController extends Controller
+class UserController extends Controller
 {
 
-    public function index(): View
+    public function index()
     {
-        return view('auth.login');
+        return User::get();
+    }  
+
+    public function show()
+    {
+        return User::where( 'us_id', 'us_id');
     }  
       
     public function registration(): View
@@ -57,24 +60,7 @@ class AuthController extends Controller
         return redirect("dashboard")->withSuccess('Excelente, você realizou o Login!');
     }
     
-    public function dashboard()
-    {
-        if(Auth::check()){
-            return view('dashboard');
-        }
-  
-        return redirect("login")->withSuccess('Ops! Você não está logado!');
-    }
-
-    public function settings()
-    {
-        if(Auth::check()){
-            return view('settings');
-        }
-  
-        return redirect("login")->withSuccess('Ops! Você não está logado!');
-    }
-    
+   
     public function create(array $data)
     {
       return User::create([
@@ -82,18 +68,6 @@ class AuthController extends Controller
         'us_email' => $data['us_email'],
         'us_password' => Hash::make($data['us_password'])
       ]);
-    }
-    
-    public function delete()
-    {
-        $user = User::find(Auth::user()->id);
-
-        Auth::logout();
-    
-        if ($user->delete()) {
-    
-             return Redirect::route('login')->with('global', 'Your account has been deleted!');
-        }
     }
     
     public function logout(): RedirectResponse

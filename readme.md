@@ -22,11 +22,6 @@ Requisitos do site:
             ◦ CPF deve ser validado segundo o algoritmo de validação oficial.
             ◦ Não é permitido CPF duplicado na base (por usuário).
             ◦ Apenas o complemento do endereço pode ser omitido no cadastro.
-        ◦ Verificação de cadastro:
-            ◦ O endpoint deve apresentar mensagens de feedback ao usuário e respeitar as regras de validação.
-            ◦ CPF deve ser validado segundo o algoritmo de validação oficial.
-            ◦ Não é permitido CPF duplicado na base (por usuário).
-            ◦ Apenas o complemento do endereço pode ser omitido no cadastro.
-        ◦ Realizar pesquisa de endereços como ajuda ao cadastro de contatos.
+            ◦ Realizar pesquisa de endereços como ajuda ao cadastro de contatos.
     • Excluir a sua própria conta.
         ◦ A conta só pode ser excluida mediante a senha do usuário

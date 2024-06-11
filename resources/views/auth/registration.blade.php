@@ -20,7 +20,9 @@
         <div class="card border border-light-subtle rounded-3 shadow-sm">
           <div class="card-body p-3 p-md-4 p-xl-5">
             <div class="text-center mb-3">
-              [Imagem da Logo]
+              <row>
+                <h3><img src="{{URL::asset('/image/Globe_icon.png')}}" style="vertical-align: 0%;"alt="Globe Icon" height="20" width="20"></img>   Contact List</h3>
+              </row>
             </div>
             <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Registre a sua conta!</h2>
             <form method="POST" action="{{ route('register.post') }}">
